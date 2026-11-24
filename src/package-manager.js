@@ -266,4 +266,30 @@ export class AdbAptPackageManager {
   async buildApk(options = {}) {
     return this.apkBuilder.buildCompanionApk(options);
   }
+
+  /**
+   * `adb-apt fund` — Returns open-source funding & $200 micro-grant goal metadata.
+   */
+  getFundingInfo() {
+    return {
+      package: 'adb-apt',
+      version: '1.0.0',
+      goalUsd: 200,
+      currency: 'USD',
+      url: 'https://github.com/sponsors/longdenjay00-sketch',
+      docs: 'https://github.com/longdenjay00-sketch/adb-apt/blob/main/FUNDING.md',
+      portfolio: 'https://longdenjay00-sketch.github.io/longdenjay00-sketch/',
+      milestones: [
+        { title: 'Hardware & Multi-ABI Test Bench', amountUsd: 75 },
+        { title: 'Pure-JS APK Signature Scheme v2 Signer', amountUsd: 75 },
+        { title: 'Automated F-Droid Delta Sync & CI Pipeline', amountUsd: 50 }
+      ],
+      tiers: [
+        { amountUsd: 5, name: 'Terminal Backer' },
+        { amountUsd: 25, name: 'Construct Operator' },
+        { amountUsd: 50, name: 'Systems Patron' },
+        { amountUsd: 200, name: 'Full Milestone Sponsor' }
+      ]
+    };
+  }
 }

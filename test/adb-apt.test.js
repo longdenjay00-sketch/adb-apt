@@ -158,6 +158,16 @@ test('CLI runner executes apt commands with --json and --dry-run', async () => {
     assert.equal(code, 0);
     const parsed = JSON.parse(logs.join('\n'));
     assert.equal(parsed[0].packageId, 'moe.shizuku.privileged.api');
+
+    const fundLogs = [];
+    const fundCode = await runCli(['fund', '--json'], {
+      homeDir: tmpHome,
+      stdout: (line) => fundLogs.push(line)
+    });
+    assert.equal(fundCode, 0);
+    const fundData = JSON.parse(fundLogs.join('\n'));
+    assert.equal(fundData.goalUsd, 200);
+    assert.equal(fundData.tiers.length, 4);
   } finally {
     await fs.rm(tmpHome, { recursive: true, force: true });
   }

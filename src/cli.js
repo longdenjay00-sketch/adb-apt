@@ -45,6 +45,7 @@ ${fmt('cyan', 'ADB BRIDGE & APK COMMANDS:')}
   logcat [pkg] [--lines <n>]     Dump or filter device logcat (auto-resolves package PID)
   sources [list|add|remove]      Inspect or modify configured APK repositories (sources.list)
   build-apk [--out <file.apk>]   Build a zipaligned Android companion/wrapper APK package
+  fund                           Display $200 micro-grant goal, milestones, and sponsorship links
 
 ${fmt('cyan', 'OPTIONS:')}
   -s, --serial <serial>          Target a specific ADB device serial or <ip:port>
@@ -437,6 +438,27 @@ export async function runCli(argv = process.argv.slice(2), io = {}) {
           );
           stdout(`  Package: ${d.packageId} v${d.versionName} (code ${d.versionCode})`);
           stdout(`  SHA256:  ${d.sha256}`);
+        });
+        return 0;
+      }
+
+      case 'fund':
+      case 'funding': {
+        const info = pm.getFundingInfo();
+        printJsonOr(info, (d) => {
+          stdout(`${fmt('bold', 'adb-apt Open-Source Funding')} — Target Goal: ${fmt('green', `$${d.goalUsd} ${d.currency}`)}`);
+          stdout(`  Sponsor URL: ${fmt('cyan', d.url)}`);
+          stdout(`  Details:     ${d.docs}`);
+          stdout('');
+          stdout(fmt('bold', 'Milestones ($200 Goal):'));
+          for (const m of d.milestones) {
+            stdout(`  - ${fmt('yellow', `$${m.amountUsd}`)}: ${m.title}`);
+          }
+          stdout('');
+          stdout(fmt('bold', 'Sponsorship Tiers:'));
+          for (const t of d.tiers) {
+            stdout(`  - ${fmt('green', `$${t.amountUsd}`)} — ${t.name}`);
+          }
         });
         return 0;
       }

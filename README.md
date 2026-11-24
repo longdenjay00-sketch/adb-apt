@@ -95,6 +95,19 @@ console.log('Generated APK:', apk.apkPath, apk.sha256);
 
 ---
 
+## Funding & Sponsorship ($200 Micro-Grant Goal)
+
+`adb-apt` is seeking a **$200 micro-grant** to fund multi-ABI physical hardware testing, pure-JS APK Signature Scheme v2 signing, and automated F-Droid delta index syncing.
+
+```bash
+# Inspect funding milestones and sponsorship tiers directly from the CLI
+adb-apt fund
+```
+
+See [FUNDING.md](./FUNDING.md) or visit [GitHub Sponsors (`@longdenjay00-sketch`)](https://github.com/sponsors/longdenjay00-sketch).
+
+---
+
 ## License
 
 MIT © `longdenjay00-sketch`

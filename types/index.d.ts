@@ -105,6 +105,17 @@ export declare class AdbAptPackageManager {
   backup(packageSpec: string, options?: Record<string, unknown>): Promise<{ packageId: string; serial: string; files: string[]; dryRun: boolean }>;
   restore(apkPath: string, options?: Record<string, unknown>): Promise<Array<Record<string, unknown>>>;
   buildApk(options?: Record<string, unknown>): Promise<Record<string, unknown>>;
+  getFundingInfo(): {
+    package: string;
+    version: string;
+    goalUsd: number;
+    currency: string;
+    url: string;
+    docs: string;
+    portfolio: string;
+    milestones: Array<{ title: string; amountUsd: number }>;
+    tiers: Array<{ amountUsd: number; name: string }>;
+  };
 }
 
 export declare function runCli(argv?: string[], io?: Record<string, unknown>): Promise<number>;

@@ -21,8 +21,13 @@
     "types/",
     "dist/android/",
     "README.md",
+    "FUNDING.md",
     "LICENSE"
   ],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/longdenjay00-sketch"
+  },
   "scripts": {
     "build": "node scripts/build.js",
     "build:apk": "node scripts/build.js --apk-only",
