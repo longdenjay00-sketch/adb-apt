@@ -1,0 +1,48 @@
+{
+  "name": "adb-apt",
+  "version": "1.0.0",
+  "description": "APT-style Android APK package manager, repository resolver (F-Droid & GitHub Releases), APK builder, and wireless ADB toolkit.",
+  "type": "module",
+  "main": "./src/index.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./src/index.js"
+    }
+  },
+  "bin": {
+    "adb-apt": "./bin/adb-apt.js",
+    "apk-apt": "./bin/adb-apt.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "types/",
+    "dist/android/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build:apk": "node scripts/build.js --apk-only",
+    "test": "node --test test/*.test.js",
+    "pack:npm": "npm run build && npm pack"
+  },
+  "keywords": [
+    "adb",
+    "android",
+    "apk",
+    "apt",
+    "package-manager",
+    "fdroid",
+    "github-releases",
+    "cli",
+    "termux"
+  ],
+  "author": "longdenjay00-sketch",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
