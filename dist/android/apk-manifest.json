@@ -1,0 +1,17 @@
+{
+  "apkPath": "/data/data/com.termux/files/home/src/projects/adb-apt/dist/android/adb-apt-companion.apk",
+  "packageId": "com.adbapt.companion",
+  "appName": "ADB-APT Companion",
+  "versionName": "1.0.0",
+  "versionCode": 1,
+  "sizeBytes": 3025,
+  "sha256": "1bb0e088210549278828b7c8bf2769b053b06f07f1c6cc6d83d2105bd522756c",
+  "entries": [
+    "AndroidManifest.xml",
+    "classes.dex",
+    "assets/index.html",
+    "assets/adb-apt.json",
+    "META-INF/MANIFEST.MF",
+    "META-INF/CERT.SF"
+  ]
+}
